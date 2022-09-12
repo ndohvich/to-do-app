@@ -29,4 +29,8 @@ export class HomePage {
     return await modal.present();
   }
 
+  delete(index){
+    this.todoList.splice(index,1);
+  }
+
 }
