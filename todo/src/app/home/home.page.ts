@@ -10,7 +10,7 @@ export class HomePage {
 
   todoList = [{
     itemName: 'Coding',
-    itemDueDate: '13-10-21',
+    itemDueDate: '10-13-21',
     itemPriority: 'high',
     itemCategory: 'Work'
   },
@@ -22,12 +22,19 @@ export class HomePage {
   },
   {
     itemName: 'Shopping',
-    itemDueDate: '13-10-21',
+    itemDueDate: '10-23-21',
     itemPriority: 'middle',
+    itemCategory: 'Personnel'
+  },
+  {
+    itemName: 'Workout',
+    itemDueDate: '05-10-21',
+    itemPriority: 'high',
     itemCategory: 'Personnel'
   }
 ];
 
+  today: number = Date.now();
   constructor() {}
 
 }
