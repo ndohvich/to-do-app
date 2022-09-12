@@ -8,13 +8,31 @@ import { ModalController } from '@ionic/angular';
 })
 export class AddNewTaskPage implements OnInit {
 
-  constructor(public modalCtrl: ModalController) { }
+  categories = ['Work', 'Personnal', 'Home'];
 
-  ngOnInit() {
-  }
+  taskName;
+  taskDate;
+  taskPriority;
+  taskCategory;
 
-  async dissmis(){
-    await this.modalCtrl.dismiss();
-  }
+taskObject;
+constructor(public modalCtrl: ModalController) { }
+
+ngOnInit() {
+}
+
+async dissmis(){
+  await this.modalCtrl.dismiss(this.taskObject);
+}
+
+selectedCategory(index){
+  this.taskCategory = this.categories[index];
+}
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+AddTask(){
+  this.taskObject = ({itemName:this.taskName, itemDueDate:this.taskDate, itemPriority:this.taskPriority, itemCategory:this.taskCategory});
+  this.dissmis();
+}
 
 }

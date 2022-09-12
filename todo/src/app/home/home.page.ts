@@ -10,31 +10,7 @@ import { AddNewTaskPage } from '../add-new-task/add-new-task.page';
 
 export class HomePage {
 
-  todoList = [{
-    itemName: 'Coding',
-    itemDueDate: '10-13-21',
-    itemPriority: 'high',
-    itemCategory: 'Work'
-  },
-  {
-    itemName: 'Design',
-    itemDueDate: '03-10-21',
-    itemPriority: 'low',
-    itemCategory: 'Work'
-  },
-  {
-    itemName: 'Shopping',
-    itemDueDate: '10-23-21',
-    itemPriority: 'middle',
-    itemCategory: 'Personnel'
-  },
-  {
-    itemName: 'Workout',
-    itemDueDate: '05-10-21',
-    itemPriority: 'high',
-    itemCategory: 'Personnel'
-  }
-];
+  todoList = [];
 
   today: number = Date.now();
 
@@ -43,6 +19,11 @@ export class HomePage {
   async  addTask(){
     const modal = await this.modalCtrl.create({
       component: AddNewTaskPage
+    });
+
+    modal.onDidDismiss().then(newTaskObj => {
+      console.log(newTaskObj.data);
+      this.todoList.push(newTaskObj.data);
     });
 
     return await modal.present();
